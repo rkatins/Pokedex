@@ -7,27 +7,6 @@ import './assets/css/textTransform.css'
 import './assets/css/font.css'
 import './assets/css/pokedexLateral.css'
 
-const tipoImagenes = {
-  normal: './assets/images/types/Tipo_normal_icono_EP.webp',
-  fire: './assets/images/types/Tipo_fuego_icono_EP.webp',
-  water: './assets/images/types/Tipo_agua_icono_EP.webp',
-  electric: './assets/images/types/Tipo_electrico_icono_EP.webp',
-  grass: './assets/images/types/Tipo_planta_icono_EP.webp',
-  ice: './assets/images/types/Tipo_hielo_icono_EP.webp',
-  fighting: './assets/images/types/Tipo_lucha_icono_EP.webp',
-  poison: './assets/images/types/Tipo_veneno_icono_EP.webp',
-  ground: './assets/images/types/Tipo_tierra_icono_EP.webp',
-  flying: './assets/images/types/Tipo_volador_icono_EP.webp',
-  psychic: './assets/images/types/Tipo_psiquico_icono_EP.webp',
-  bug: './assets/images/types/Tipo_bicho_icono_EP.webp',
-  rock: './assets/images/types/Tipo_roca_icono_EP.webp',
-  ghost: './assets/images/types/Tipo_fantasma_icono_EP.webp',
-  dragon: './assets/images/types/Tipo_dragon_icono_EP.webp',
-  dark: './assets/images/types/Tipo_siniestro_icono_EP.webp',
-  steel: './assets/images/types/Tipo_acero_icono_EP.webp',
-  fairy: './assets/images/types/Tipo_hada_icono_EP.webp',
-};
-
 function App() {  
   const [pokemon, setPokemon] = useState(null);
   const [pokedexLateral, setPokedexLateral] = useState([])
