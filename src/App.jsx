@@ -7,12 +7,13 @@ import './assets/css/textTransform.css'
 import './assets/css/font.css'
 import './assets/css/pokedexLateral.css'
 
+import {fSaludar} from './assets/scripts/pokedexLateral'
+
 function App() {  
   const [pokemon, setPokemon] = useState(null);
   const [pokedexLateral, setPokedexLateral] = useState([])
   const [busqueda, setBusqueda] = useState("");
   const [error, setError] = useState(false);
-  const [registros, setRegistros] = useState([]);
 
   const ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -82,7 +83,9 @@ function App() {
     <>
       <ul id="pokedexLateral">
         {pokedexLateral.map((pokedex, index) => (
-          <li key = {index} list-icon = {pokedex.id}>
+          <li key = {index} data-list-icon = {pokedex.id}
+           onClick={fSaludar}
+          >
             <span className="capitalLeter">&nbsp;{pokedex.name}</span>
             <img src={pokedex.sprites.front_default} alt={pokedex.name} />
           </li>
