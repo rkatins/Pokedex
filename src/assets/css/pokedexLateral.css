@@ -1,16 +1,26 @@
 #pokedexLateral {
-    border: 2px solid black;
-
-    padding-left: 0%;
+    /* padding-left: 0%; */
 
     width: 350px;
-    height: 230px;
+    height: 320px;
 
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #pokedexLateral > li {
+    color: #323232;
+    background-color: #a3a3a3;
+    border-radius: 20px;
+
     list-style: none;
+
+    padding-left: 10px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    align-items: center;
 }
 
 #pokedexLateral > li::before {

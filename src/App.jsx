@@ -82,8 +82,8 @@ function App() {
     <>
       <ul id="pokedexLateral">
         {pokedexLateral.map((pokedex, index) => (
-          <li key = {index} list-icon = {`${pokedex.id} `}>
-            <span className="capitalLeter">{pokedex.name}</span>
+          <li key = {index} list-icon = {pokedex.id}>
+            <span className="capitalLeter">&nbsp;{pokedex.name}</span>
             <img src={pokedex.sprites.front_default} alt={pokedex.name} />
           </li>
         ))}
