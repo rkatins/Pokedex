@@ -13,14 +13,10 @@
 }
 
 .agrandarSprite {
-    opacity: 0.8;
-
     object-fit: none;
     transition: all 0.3s ease-in-out;
 }
 
 .agrandarSprite:hover {
-    opacity: 1;
-
     transform: scale(1.5);
 }
