@@ -13,7 +13,7 @@ function App() {
   const [pokemon, setPokemon] = useState(null);
   const [pokedexLateral, setPokedexLateral] = useState([])
   const [busqueda, setBusqueda] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(false); 
 
   const ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -75,6 +75,10 @@ function App() {
     }    
   }
 
+  // useEffect(() => {
+  //   buscarPokemon()
+  // }, [busqueda]);
+
   useEffect(() => {
     fRellenarPokedexLateral();
   }, []);
@@ -84,7 +88,7 @@ function App() {
       <ul id="pokedexLateral">
         {pokedexLateral.map((pokedex, index) => (
           <li key = {index} data-list-icon = {pokedex.id}
-           onClick={fSaludar}
+           onClick={() => fSaludar(pokedex)}
           >
             <span className="capitalLeter">&nbsp;{pokedex.name}</span>
             <img src={pokedex.sprites.front_default} alt={pokedex.name} />
@@ -111,12 +115,15 @@ function App() {
               `, ${pokemon.types[1].type.name}`
             )}</h4>
 
+            <h3>Altura: {pokemon.height/10}m</h3>
+            <h3>Peso: {pokemon.weight/10}kg</h3>
+
             <div className="contenedorSprite">
               <div className="agrandarSprite">
-                <img className="animarSprite" style={{width: '200px'}} src={pokemon.sprites.front_default} alt={pokemon.name} />
+                <img className="animarSprite" style={{width: '200px'}} src={pokemon.sprites.other.home.front_default} alt={pokemon.name} />
               </div>
               <div className="agrandarSprite">
-                <img className="animarSprite" style={{width: '200px'}} src={pokemon.sprites.front_shiny} alt={pokemon.name} />
+                <img className="animarSprite" style={{width: '200px'}} src={pokemon.sprites.other.home.front_shiny} alt={pokemon.name} />
               </div>
             </div>
           </div>
