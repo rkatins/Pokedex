@@ -8,8 +8,6 @@
 }
 
 .animarSprite {
-    background-color: blue;
-
     animation: moverArribaAbajo 1s ease-in-out infinite;
     object-fit: contain;
 }
