@@ -1,0 +1,18 @@
+#pokedexLateral {
+    border: 2px solid black;
+
+    padding-left: 0%;
+
+    width: 350px;
+    height: 230px;
+
+    overflow-y: scroll;
+}
+
+#pokedexLateral > li {
+    list-style: none;
+}
+
+#pokedexLateral > li::before {
+    content: attr(list-icon);
+}

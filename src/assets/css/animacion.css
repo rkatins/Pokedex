@@ -1,0 +1,28 @@
+@keyframes moverArribaAbajo {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+.animarSprite {
+    background-color: blue;
+
+    animation: moverArribaAbajo 1s ease-in-out infinite;
+    object-fit: contain;
+}
+
+.agrandarSprite {
+    opacity: 0.8;
+
+    object-fit: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.agrandarSprite:hover {
+    opacity: 1;
+
+    transform: scale(1.5);
+}
