@@ -1,17 +1,14 @@
 import {useState, useEffect} from "react";
+import {PokedexLateral} from './assets/jsx/pokedexLateral'
 
 import "./App.css";
 import './assets/css/animacion.css'
 import './assets/css/containers.css'
 import './assets/css/textTransform.css'
 import './assets/css/font.css'
-import './assets/css/pokedexLateral.css'
 
-import {fSaludar} from './assets/scripts/pokedexLateral'
-
-function App() {  
+export function App() {  
   const [pokemon, setPokemon] = useState(null);
-  const [pokedexLateral, setPokedexLateral] = useState([])
   const [busqueda, setBusqueda] = useState("");
   const [error, setError] = useState(false); 
 
@@ -41,60 +38,11 @@ function App() {
       setPokemon(null);
       setError(true);
     }
-  }; 
-
-  const fRellenarPokedexLateral = async() => {
-    var idPokedex = 1
-    var pokedexTemporal = []
-
-    while (true) {
-      try {
-        const respuesta = await fetch(ENDPOINT + idPokedex);
-        
-        // Si no hay más Pokémon, termina la función
-        if (!respuesta.ok) {
-          return setPokedexLateral(pokedexTemporal)
-        }
-  
-        const respuestJSON = await respuesta.json()
-        pokedexTemporal.push(respuestJSON)
-        
-        idPokedex++;
-      } catch (error) {
-        console.error("El fetch de la pokedex lateral a fallado:", error);
-      }
-      /**
-       * A mi tambien me desconcirta el ponerlo aqui dentro del
-       * bucle while la siguiente linea
-       * Pero esto se debe a que nos interesa que haya registros
-       * desde un principio, y no esperar a que carguen todos los
-       * registros obtenidos para enviar los registros a
-       * `pokedexLateral`
-       */      
-      setPokedexLateral(pokedexTemporal)
-    }    
-  }
-
-  // useEffect(() => {
-  //   buscarPokemon()
-  // }, [busqueda]);
-
-  useEffect(() => {
-    fRellenarPokedexLateral();
-  }, []);
+  };
 
   return (
     <>
-      <ul id="pokedexLateral">
-        {pokedexLateral.map((pokedex, index) => (
-          <li key = {index} data-list-icon = {pokedex.id}
-           onClick={() => fSaludar(pokedex)}
-          >
-            <span className="capitalLeter">&nbsp;{pokedex.name}</span>
-            <img src={pokedex.sprites.front_default} alt={pokedex.name} />
-          </li>
-        ))}
-      </ul>
+      <PokedexLateral/>
 
       <header>
         <h1>Pokedex</h1>
@@ -131,6 +79,4 @@ function App() {
       </main>
     </>
   );
-}
-
-export default App;
+};
