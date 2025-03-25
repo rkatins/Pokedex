@@ -50,10 +50,12 @@ export function PokedexLateral() {
     <>
         <ul id="pokedexLateral">
             {pokedexLateral.map((pokedex, index) => (
-            <li key = {index} data-list-icon = {pokedex.id}
+            <li key = {index}
                 onClick={() => fSaludar(pokedex)}
             >
-                <span className="capitalLeter">&nbsp;{pokedex.name}</span>
+                
+                <span id="nPokedexLateralID" className="capitalLeter">&nbsp;{pokedex.id}</span>
+                <span className="capitalLeter">&nbsp;{pokedex.species.name}</span>
                 <img src={pokedex.sprites.front_default} alt={pokedex.name} />
             </li>
             ))}
