@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 // import {PokedexLateral} from './components/pokedexLateral'
 import { fBarraBusqueda } from "../assets/scripts/buscadorPokedex";
 
@@ -7,22 +7,26 @@ import '../assets/css/containers.css'
 import '../assets/css/textTransform.css'
 
 export function BuscadorPokedex() {  
+  const [busqueda, setBusqueda] = useState("");
+
+  const actualizarValorBusqueda = (evento) => {
+    setBusqueda(evento.target.value);
+  };
+
   return (
     <>
       {/* <PokedexLateral/> */}
 
       <header>
         <h1>Pokedex</h1>
-        <form>
-        {/* <form onSubmit={enviarFormulario}> */}
-          <input type="text" name="barraBusquedaPokedex" />
-          {/* <input value={busqueda} onChange={ handleChange(this) } type="text" name="barraBusquedaPokedex" /> */}
+        <form onSubmit={fBarraBusqueda( busqueda )}>
+          <input value={ busqueda } onChange={ actualizarValorBusqueda } type="text" name="barraBusquedaPokedex" />
           <button type="submit">Buscar</button>
         </form>
       </header>
 
-        <h2>Datos Pokémon</h2>
-        <h3>No se encontró ningún Pokémon</h3>
+        {/* <h2>Datos Pokémon</h2> */}
+        {/* <h3>No se encontró ningún Pokémon</h3> */}
         {/* {error && <h3>No se encontró ningún Pokémon</h3>} */}
         {false && (
         // {pokemon && (
