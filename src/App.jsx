@@ -10,7 +10,7 @@ import './assets/css/font.css'
 export function App() {  
   return (
     <>
-      
+      <BuscadorPokedex/>
     </>
   );
 };
