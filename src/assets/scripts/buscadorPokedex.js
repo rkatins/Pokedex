@@ -1,5 +1,5 @@
-import { Error404 } from '../../components/adds/error404'
-import { Error500 } from '../../components/adds/error500'
+// import { Error404 } from '../../components/adds/error404'
+// import { Error500 } from '../../components/adds/error500'
 
 const ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -30,27 +30,27 @@ async function fConsumirAPIBuscarPokemon(nombrePokemon) {
   
   var pokeAPI = null
 
-  // No respuestas HTTP 2xx
-  if (!pokeAPIResponse.ok) {
-    // Obtener el código de error HTTP
-    const status = pokeAPIResponse.status;
-
-    if (status >= 400 && status < 500) {
-      if (status === 404) {
-        userMessage = 'El Pokémon ' + nombrePokemon + ' no fue encontrado. Verifica el nombre';
-        return <Error404/>
-      }
-    } else if (status >= 500 && status < 600) {
-      return <Error500/>
-    } else {
-      console.log('❓ Error HTTP inesperado (' + pokeAPIResponse + '): ' + pokeAPIResponse.statusText + '-' + pokeAPIResponse.apiErrorMessage)
-    }
-  }
-
   try {
     pokeAPI = await fetch(ENDPOINT + nombrePokemon)
     return jsonPokeAPI = await pokeAPI.json()
   } catch (e) {
     console.log('⚠️ No se pudo consultar la API -> ' + e);
   }
+
+  // // No respuestas HTTP 2xx
+  // if (!pokeAPIResponse.ok) {
+  //   // Obtener el código de error HTTP
+  //   const status = pokeAPIResponse.status;
+
+  //   if (status >= 400 && status < 500) {
+  //     if (status === 404) {
+  //       userMessage = 'El Pokémon ' + nombrePokemon + ' no fue encontrado. Verifica el nombre';
+  //       return <Error404/>
+  //     }
+  //   } else if (status >= 500 && status < 600) {
+  //     return <Error500/>
+  //   } else {
+  //     console.log('❓ Error HTTP inesperado (' + pokeAPIResponse + '): ' + pokeAPIResponse.statusText + '-' + pokeAPIResponse.apiErrorMessage)
+  //   }
+  // }
 }
