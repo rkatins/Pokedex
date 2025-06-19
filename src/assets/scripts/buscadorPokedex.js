@@ -1,8 +1,6 @@
 // import { Error404 } from '../../components/adds/error404'
 // import { Error500 } from '../../components/adds/error500
 
-const jsonPokeAPI = null
-
 const ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
 export async function fBarraBusqueda(nombreIntroducido) {
