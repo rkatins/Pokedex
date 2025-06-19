@@ -7,7 +7,7 @@ import '../assets/css/containers.css'
 import '../assets/css/textTransform.css'
 
 export function BuscadorPokedex() {  
-  const [barraBusqueda, setBarraBusqueda] = useState("")
+  const [barraBusqueda, setBarraBusqueda] = useState('')
   const [pokemon, setPokemon] = useState(null)
   const [mostrarDatos, setMostrarDatos] = useState(false)
 
@@ -18,9 +18,14 @@ export function BuscadorPokedex() {
   const buscarPokemon = async (evento) => {
     evento.preventDefault()
 
-    setMostrarDatos(true)
+    // Al hacer un `.preventDefault()`, las funciones a las que llama no necesitan de usarlo
+    setPokemon(fBarraBusqueda(barraBusqueda))
 
-    setPokemon(fBarraBusqueda(evento, barraBusqueda))
+    if (pokemon) {
+      setMostrarDatos(true)
+    } else {
+      setMostrarDatos(false)
+    }
   }
 
   return (
@@ -35,11 +40,10 @@ export function BuscadorPokedex() {
         </form>
       </header>
 
-      <p>{barraBusqueda}</p>
+      {/* { barraBusqueda === '' ? setMostrarDatos(false) : null } */}
+      { mostrarDatos ? (<p>Buscanso ...</p>) : null}
 
-      { mostrarDatos ??
-        <div>
-          {/* { pokemon ? 
+      {/* { pokemon ? 
             (
             <div>
               <h3>Número en la Pokédex: {pokemon.id}</h3>
@@ -66,9 +70,6 @@ export function BuscadorPokedex() {
               </div>
             )
           } */}
-          (<p>Buscanso ...</p>)
-        </div>
-      }
     </>
   )
 }

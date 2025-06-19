@@ -5,22 +5,21 @@ const jsonPokeAPI = null
 
 const ENDPOINT = "https://pokeapi.co/api/v2/pokemon/";
 
-export async function fBarraBusqueda(evento, nombreIntroducido) {
-  var nombrePokemon = nombreIntroducido.toLowerCase()
-
-  if (!nombrePokemon) {
-    console.log('❌ El nombre del Pokémon no puede estar vacío.');
+export async function fBarraBusqueda(nombreIntroducido) {
+  if (nombreIntroducido === '') {
+    alert('❌ El nombre del Pokémon no puede estar vacío.');
 
     // Fuerza la salida de la función
     return;
+  } else {
+    // alert(nombreIntroducido)
+    return await fConsumirAPIBuscarPokemon(nombreIntroducido)
   }
-
-  return await fConsumirAPIBuscarPokemon(nombrePokemon)
 }
 
-async function fConsumirAPIBuscarPokemon(nombrePokemon) {
+async function fConsumirAPIBuscarPokemon(nombreIntroducido) {
   // Si o si, esta funcion se va a encargar de "traducir" a como requiere
-  nombrePokemon.toLowerCase()
+  var nombrePokemon = nombreIntroducido.toLowerCase()
   
   var pokeAPI = null
 
