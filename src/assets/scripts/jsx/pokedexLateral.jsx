@@ -3,7 +3,7 @@ import {useState, useEffect} from "react";
 import '../css/font.css'
 import '../css/pokedexLateral.css'
 
-import {fSaludar} from '../scripts/pokedexLateral'
+import {fSaludar} from '../js/pokedexLateral'
 
 export function PokedexLateral() {
   const [pokedexLateral, setPokedexLateral] = useState([])
