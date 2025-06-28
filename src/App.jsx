@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 
 import { StartMenu } from './components/startMenu'
 import { Pokedex } from './components/pokedex'
@@ -8,15 +8,14 @@ import { Mochila } from './components/mochila'
 import { Ajustes } from './components/ajustes'
 import { Guardar } from './components/guardar'
 
-import "./App.css";
-import './assets/css/animacion.css'
+import './App.css'
 import './assets/css/containers.css'
-import './assets/css/textTransform.css'
 import './assets/css/font.css'
 
 export function App() {
   return (
     <>
+    <BrowserRouter>
       <Routes>
         <Route path='/' element={<StartMenu />} />
         <Route path='/pokedex' element={<Pokedex />} />
@@ -25,7 +24,8 @@ export function App() {
         <Route path='/mochila' element={<Mochila />} />
         <Route path='/ajustes' element={<Ajustes />} />
         <Route path='/guardar' element={<Guardar />} />
-    </Routes>
+      </Routes>
+    </BrowserRouter>
     </>
   );
 };
